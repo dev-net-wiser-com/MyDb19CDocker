@@ -1,0 +1,14 @@
+services:
+  DB19C:
+    container_name: DB19C
+    image: doctorkirk/oracle-19c:latest
+    environment:
+      - ORACLE_PWD=abc123
+      - ORACLE_CHARACTERSET=AL32UTF8
+      - ORACLE_SID=DB19C
+      - ORACLE_PDB=DUMP_DIR
+    volumes:
+      - ./oradata:/opt/oracle/dpdump
+      - ./scripts:/scripts
+    ports:
+      - 1521:1521
